@@ -23,20 +23,22 @@ public class NavigationSystem {
     /**
      * 按模式导航。
      *
-     * @param from 起点
-     * @param to   终点
-     * @param mode 模式：目前支持 walk
+     * @param from 起点，如“图书馆”
+     * @param to   终点，如“食堂”
+     * @param mode 模式：walk / 步行
+     * @return 可读的导航结果文本
+     * @throws IllegalArgumentException 参数为空、地点不存在或模式不支持
      */
     public String navigate(String from, String to, String mode) {
         if (mode == null || mode.trim().isEmpty()) {
-            throw new IllegalArgumentException("导航模式不能为空");
+            throw new IllegalArgumentException("导航模式不能为空，当前可用: walk");
         }
         String m = mode.trim().toLowerCase();
         if (m.equals("walk") || m.equals("步行")) {
             return walkNavigator.navigate(from, to);
-        } else {
-            throw new IllegalArgumentException("不支持的导航模式: " + mode);
         }
+        throw new IllegalArgumentException(
+                "不支持的导航模式: " + mode + "（当前可用: walk / 步行）");
     }
 
     /**

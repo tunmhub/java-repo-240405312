@@ -25,6 +25,9 @@ public class Location {
 
     @Override
     public String toString() {
-        return name + "(" + description + ")";
+        if (description.isEmpty()) {
+            return name;
+        }
+        return name + "（" + description + "）";
     }
 }

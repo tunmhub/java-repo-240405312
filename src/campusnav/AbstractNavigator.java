@@ -36,11 +36,10 @@ public abstract class AbstractNavigator {
             return "起点与终点相同(" + from + ")，无需移动。";
         }
         double minutes = distance / getSpeedKmh() * 60.0;
-        String tip = getTip();
-        return "【" + getModeName() + "】" + from + " -> " + to
-                + "，距离约 " + formatDouble(distance) + " 公里"
-                + "，预计耗时约 " + formatDouble(minutes) + " 分钟。"
-                + tip;
+        return "【" + getModeName() + "】" + from + " → " + to
+                + "\n  距离: " + formatDouble(distance) + " 公里"
+                + "\n  预计耗时: " + formatDouble(minutes) + " 分钟"
+                + "\n  " + getTip();
     }
 
     protected void validate(String from, String to) {

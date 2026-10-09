@@ -21,6 +21,6 @@ public class WalkNavigator extends AbstractNavigator {
 
     @Override
     protected String getTip() {
-        return "步行模式：请注意车辆，走人行道。";
+        return "提示: 步行模式建议走人行道，注意来往车辆，约 5 分钟/400 米。";
     }
 }

@@ -6,12 +6,13 @@ package campusnav;
 public class Main {
     public static void main(String[] args) {
         NavigationSystem system = NavigationSystem.createDefault();
-        System.out.println("=== 校园导航系统演示 ===");
+        System.out.println("======== 校园导航系统 ========");
+        System.out.println("已加载地点数: " + system.getMap().getLocationCount());
+        System.out.println();
         try {
-            String result = system.navigate("图书馆", "食堂", "walk");
-            System.out.println(result);
+            System.out.println(system.navigate("图书馆", "食堂", "walk"));
         } catch (Exception e) {
-            System.out.println("导航失败: " + e.getMessage());
+            System.out.println("[错误] " + e.getMessage());
         }
     }
 }
