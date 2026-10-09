@@ -9,10 +9,18 @@ public class Main {
         System.out.println("======== 校园导航系统 ========");
         System.out.println("已加载地点数: " + system.getMap().getLocationCount());
         System.out.println();
-        try {
-            System.out.println(system.navigate("图书馆", "食堂", "walk"));
-        } catch (Exception e) {
-            System.out.println("[错误] " + e.getMessage());
+        String[][] demos = {
+                {"图书馆", "食堂", "walk"},
+                {"图书馆", "体育馆", "bike"},
+                {"宿舍区", "体育馆", "mixed"},
+        };
+        for (String[] d : demos) {
+            try {
+                System.out.println(system.navigate(d[0], d[1], d[2]));
+                System.out.println();
+            } catch (Exception e) {
+                System.out.println("[错误] " + e.getMessage());
+            }
         }
     }
 }
